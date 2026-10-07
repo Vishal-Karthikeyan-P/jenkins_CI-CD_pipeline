@@ -1,8 +1,10 @@
 pipeline {
     agent any
+    environment {
+        PYTHON = 'C:\\Users\\VISHAL\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
+    }
 
     stages {
-
         stage('Checkout') {
             steps {
                 echo 'Checking out source code...'
