@@ -13,15 +13,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Python application...'
-                bat '"C:\\Users\\25mx130\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" --version'
-                bat '"C:\\Users\\25mx130\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" -m py_compile app.py'
+                bat 'python --version'
+                bat 'python -m py_compile app.py'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
-                bat '"C:\\Users\\25mx130\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" -m unittest test_app.py'
+                bat 'python -m unittest test_app.py'
             }
         }
 
