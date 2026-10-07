@@ -13,22 +13,23 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Python application...'
-                sh 'python3 -m py_compile app.py'
+                bat 'python --version'
+                bat 'python -m py_compile app.py'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
-                sh 'python3 -m unittest test_app.py'
+                bat 'python -m unittest test_app.py'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                sh 'mkdir -p deploy'
-                sh 'cp app.py deploy/'
+                bat 'if not exist deploy mkdir deploy'
+                bat 'copy /Y app.py deploy\\app.py'
             }
         }
     }
